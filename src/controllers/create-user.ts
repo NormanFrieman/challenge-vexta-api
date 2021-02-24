@@ -21,7 +21,12 @@ export class CreateUser implements Controller{
             return res.status(400).json({ msg: `missing admin param` });
 
         const { login, nome, senha, admin } = req.body;
-        const response: ServiceStatus = await this.addUserDB(login, nome, senha, admin);
+
+        const hash = await this.encrypt(senha);
+        if(!hash.status)
+            return res.status(500).json({ msg: hash.body });
+
+        const response: ServiceStatus = await this.addUserDB(login, nome, hash.body, admin);
 
         if(!response.status)
             return res.status(500).json();

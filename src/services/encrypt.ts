@@ -6,7 +6,7 @@ export const encrypt = async (input: string): Promise<ServiceStatus> => {
     const hash: string = await bcrypt.hash(input, 10);
 
     if(!hash)
-        return { status: 500, body: 'encrypt error' };
+        return { status: false, body: 'encrypt error' };
 
-    return { status: 200, body: hash };
+    return { status: true, body: hash };
 };

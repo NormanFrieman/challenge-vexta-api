@@ -13,7 +13,7 @@ export class CheckUserAdmin implements Middleware{
 
         console.log(result);
         
-        if(!result.status)
+        if(!result)
             return res.status(500).json();
         
         if(!result.body)
