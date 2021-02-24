@@ -10,16 +10,22 @@ export class CreateUser implements Controller{
     ){};
 
     async handle(req: Request, res: Response){
-        const requiredFields = ['login', 'nome', 'senha', 'admin'];
+        const requiredFields = ['login', 'nome', 'senha'];
 
         requiredFields.forEach((field: string) => {
             if(!req.body[field])
                 return res.status(400).json({ msg: `missing ${field} param` });
         });
 
+        if(req.body.admin == undefined)
+            return res.status(400).json({ msg: `missing admin param` });
+
         const { login, nome, senha, admin } = req.body;
         const response: ServiceStatus = await this.addUserDB(login, nome, senha, admin);
 
-        return res.status(response.status).json({ msg: response.body });
+        if(!response.status)
+            return res.status(500).json();
+
+        return res.status(200).json({ msg: response.body });
     }
 }

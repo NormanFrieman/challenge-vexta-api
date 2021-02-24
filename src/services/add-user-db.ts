@@ -1,7 +1,8 @@
 const { User } = require('../../models');
 
-export const addUserDB = async (login: string, nome: string, senha: string, admin: string) => {
-    console.log(login, nome, senha, admin);
+import { ServiceStatus } from "../protocols";
+
+export const addUserDB = async (login: string, nome: string, senha: string, admin: string): Promise<ServiceStatus> => {
     const user = await User.create({
         login: login,
         nome: nome,

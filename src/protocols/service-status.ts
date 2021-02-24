@@ -1,4 +1,4 @@
 export interface ServiceStatus{
-    status: number,
+    status: boolean,
     body?: any
 }

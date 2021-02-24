@@ -10,6 +10,9 @@ export class ListUsers implements Controller{
     async handle(req: Request, res: Response){
         const users: ServiceStatus = await this.listUsers();
 
-        return res.status(users.status).json(users.body);
+        if(!users.status)
+            return res.status(500).json();
+
+        return res.status(200).json(users.body);
     }
 }

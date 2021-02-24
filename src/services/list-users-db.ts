@@ -1,6 +1,8 @@
 const { User } = require('../../models');
 
-export const listUsersDB = async () => {
+import { ServiceStatus } from "../protocols";
+
+export const listUsersDB = async (): Promise<ServiceStatus> => {
     const users = await User.findAll();
 
     if(!users)
