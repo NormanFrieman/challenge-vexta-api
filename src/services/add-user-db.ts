@@ -11,7 +11,7 @@ export const addUserDB = async (login: string, nome: string, senha: string, admi
     });
 
     if(!user)
-        return { status: 500, body: 'insert database error' };
+        return { status: false, body: 'insert database error' };
     
-    return { status: 200, body: 'sucess insert' };
+    return { status: true, body: { status: `sucess insert`, id: user.dataValues.id } };
 };

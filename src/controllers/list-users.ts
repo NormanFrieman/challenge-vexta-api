@@ -11,7 +11,7 @@ export class ListUsers implements Controller{
         const users: ServiceStatus = await this.listUsers();
 
         if(!users.status)
-            return res.status(500).json();
+            return res.status(500).json({ msg: users.body });
 
         return res.status(200).json(users.body);
     }

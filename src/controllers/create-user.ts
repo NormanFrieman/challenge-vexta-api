@@ -22,7 +22,7 @@ export class CreateUser implements Controller{
 
         const { login, nome, senha, admin } = req.body;
 
-        const hash = await this.encrypt(senha);
+        const hash: ServiceStatus = await this.encrypt(senha);
         if(!hash.status)
             return res.status(500).json({ msg: hash.body });
 

@@ -5,6 +5,7 @@ import {
     adaptMiddleware,
     makeCreateUserController,
     makeListUsersController,
+    makeDeleteUserController,
     makeCheckIsAdminMiddleware
 } from '../../generator'
 
@@ -14,3 +15,4 @@ usersRoute.use('/usuarios', adaptMiddleware(makeCheckIsAdminMiddleware()));
 
 usersRoute.get('/usuarios', adaptRoute(makeListUsersController()));
 usersRoute.post('/usuarios', adaptRoute(makeCreateUserController()));
+usersRoute.delete('/usuarios', adaptRoute(makeDeleteUserController()));
