@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Controller } from "../protocols";
+import { Controller, ServiceStatus } from "../protocols";
 
 export class ListUsers implements Controller{
     
@@ -8,7 +8,7 @@ export class ListUsers implements Controller{
     ){}
 
     async handle(req: Request, res: Response){
-        const users = await this.listUsers();
+        const users: ServiceStatus = await this.listUsers();
 
         return res.status(users.status).json(users.body);
     }

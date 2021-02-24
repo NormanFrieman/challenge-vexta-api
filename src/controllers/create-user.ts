@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { Controller } from '../protocols';
+import { Controller, ServiceStatus } from '../protocols';
 
 export class CreateUser implements Controller{
 
@@ -18,7 +18,7 @@ export class CreateUser implements Controller{
         });
 
         const { login, nome, senha, admin } = req.body;
-        const response = await this.addUserDB(login, nome, senha, admin);
+        const response: ServiceStatus = await this.addUserDB(login, nome, senha, admin);
 
         return res.status(response.status).json({ msg: response.body });
     }
