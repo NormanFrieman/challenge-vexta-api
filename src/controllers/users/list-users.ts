@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Controller, PropsUser, ServiceStatus } from "../protocols";
+import { Controller, PropsUser, ServiceStatus } from "../../protocols";
 
 export class ListUsers implements Controller{
     

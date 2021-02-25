@@ -1,4 +1,4 @@
-import { AuthenticateUser } from '../../controllers/authenticate-user';
+import { AuthenticateUser } from '../../controllers/auth/authenticate-user';
 
 import { Controller } from "../../protocols";
 

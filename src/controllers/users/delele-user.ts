@@ -1,7 +1,6 @@
-import { timeStamp } from 'console';
 import { Request, Response } from 'express';
 
-import { Controller, ServiceStatus } from '../protocols';
+import { Controller, ServiceStatus } from '../../protocols';
 
 export class DeleteUser implements Controller{
     constructor(

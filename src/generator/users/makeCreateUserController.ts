@@ -1,6 +1,6 @@
 import { Controller } from '../../protocols';
 
-import { CreateUser } from '../../controllers/create-user';
+import { CreateUser } from '../../controllers/users/create-user';
 
 import { addUserDB } from '../../services/add-user-db';
 

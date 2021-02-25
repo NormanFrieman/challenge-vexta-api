@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Controller } from '../protocols';
+import { Controller } from '../../protocols';
 
 export class ListOneUser implements Controller{
     constructor(

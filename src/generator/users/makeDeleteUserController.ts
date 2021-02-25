@@ -1,4 +1,4 @@
-import { DeleteUser } from '../../controllers/delele-user';
+import { DeleteUser } from '../../controllers/users/delele-user';
 
 import { Controller } from '../../protocols';
 

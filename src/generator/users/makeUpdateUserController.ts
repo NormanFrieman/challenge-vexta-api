@@ -1,4 +1,4 @@
-import { UpdateUser } from '../../controllers/update-user';
+import { UpdateUser } from '../../controllers/users/update-user';
 
 import { Controller } from '../../protocols';
 

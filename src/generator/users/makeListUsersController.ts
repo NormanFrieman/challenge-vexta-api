@@ -1,6 +1,6 @@
 import { Controller } from "../../protocols";
 
-import { ListUsers } from '../../controllers/list-users';
+import { ListUsers } from '../../controllers/users/list-users';
 
 import { listUsersDB } from '../../services/list-users-db';
 

@@ -1,4 +1,4 @@
-import { ListOneUser } from '../../controllers/list-one-user';
+import { ListOneUser } from '../../controllers/users/list-one-user';
 
 import { Controller } from "../../protocols";
 

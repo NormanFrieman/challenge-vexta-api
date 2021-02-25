@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { Controller, PropsUser, ServiceStatus } from "../protocols";
+import { Controller, PropsUser, ServiceStatus } from "../../protocols";
 
 export class UpdateUser implements Controller{
     constructor(
