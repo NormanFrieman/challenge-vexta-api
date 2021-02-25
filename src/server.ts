@@ -1,11 +1,11 @@
 import express from 'express';
-import { usersRoute } from './routes/routes';
+import { geralRoute } from './routes/routes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(usersRoute);
+app.use(geralRoute);
 
 app.listen(PORT, () => {
     console.log(`[SERVER] Listening port ${PORT}`);

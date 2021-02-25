@@ -9,10 +9,10 @@ export class CheckUserAdmin implements Middleware{
 
     async handle(req: Request, res: Response, next: NextFunction){
         const { id } = req.headers;
-        const result = await this.checkIsAdmin(id);
-        
         if(!id)
             return res.status(400).json({ msg: 'missing id header' })
+        
+        const result = await this.checkIsAdmin(id);
         
         if(!result)
             return res.status(500).json();

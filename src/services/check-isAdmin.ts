@@ -1,4 +1,4 @@
-const { User } = require('../../models');
+import { User } from '../../models';
 
 import { ServiceStatus } from "../protocols";
 
