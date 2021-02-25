@@ -11,6 +11,6 @@ import { makeCheckAuth } from '../generator/makeCheckAuth';
 export const geralRoute = express.Router();
 
 geralRoute.use(authRoute);
-geralRoute.use(citiesRoute);
-geralRoute.use(clientsRoute);
+geralRoute.use(adaptMiddleware(makeCheckAuth()), citiesRoute);
+geralRoute.use(adaptMiddleware(makeCheckAuth()), clientsRoute);
 geralRoute.use(adaptMiddleware(makeCheckAuth()), usersRoute);
