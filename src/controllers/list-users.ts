@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Controller, ServiceStatus } from "../protocols";
+import { Controller, PropsUser, ServiceStatus } from "../protocols";
 
 export class ListUsers implements Controller{
     
@@ -8,11 +8,17 @@ export class ListUsers implements Controller{
     ){}
 
     async handle(req: Request, res: Response){
-        const users: ServiceStatus = await this.listUsers();
-
+        const properties: PropsUser = {};
+        if(typeof req.query.login === 'string')
+            properties.login = req.query.login;
+        if(typeof req.query.nome === 'string')
+            properties.nome = req.query.nome;
+        console.log(properties);
+        const users: ServiceStatus = await this.listUsers(properties);
+        
         if(!users.status)
-            return res.status(500).json({ msg: users.body });
-
+            return res.status(404).json({ msg: users.body });
+        
         return res.status(200).json(users.body);
     }
 }

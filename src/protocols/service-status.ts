@@ -3,7 +3,7 @@ export interface ServiceStatus{
     body?: any
 }
 
-export interface PropsUser{
+export interface PropsUser extends Object{
     login?: string,
     nome?: string
 }
