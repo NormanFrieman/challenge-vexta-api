@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { Controller, PropsUpdateUser, ServiceStatus } from "../protocols";
+import { Controller, PropsUser, ServiceStatus } from "../protocols";
 
 export class UpdateUser implements Controller{
     constructor(
@@ -17,7 +17,7 @@ export class UpdateUser implements Controller{
         if(!req.body.login && !req.body.nome)
             return res.status(400).json({ msg: 'missing login or nome param' });
 
-        const properties: PropsUpdateUser = {};
+        const properties: PropsUser = {};
         if(req.body.login)
             properties.login = req.body.login;
         if(req.body.nome)

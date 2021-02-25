@@ -1,8 +1,8 @@
 import { User } from '../../models';
 
-import { ServiceStatus, PropsUpdateUser} from '../protocols';
+import { ServiceStatus, PropsUser} from '../protocols';
 
-export const updateUser = async (id: number, properties: PropsUpdateUser): Promise<ServiceStatus> => {
+export const updateUser = async (id: number, properties: PropsUser): Promise<ServiceStatus> => {
     const user = await User.update(properties, { where: { id: id } });
     
     if(!user[0])
