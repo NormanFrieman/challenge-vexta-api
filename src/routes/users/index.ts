@@ -18,5 +18,5 @@ usersRoute.use('/usuarios', adaptMiddleware(makeCheckIsAdminMiddleware()));
 usersRoute.get('/usuarios', adaptRoute(makeListUsersController()));
 usersRoute.get('/usuarios/:id', adaptRoute(makeListOneUserController()));
 usersRoute.post('/usuarios', adaptRoute(makeCreateUserController()));
-usersRoute.delete('/usuarios', adaptRoute(makeDeleteUserController()));
+usersRoute.delete('/usuarios/:id', adaptRoute(makeDeleteUserController()));
 usersRoute.patch('/usuarios/:id', adaptRoute(makeUpdateUserController()));
