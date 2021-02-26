@@ -9,7 +9,7 @@ import {
     makeCheckIsAdminMiddleware,
     makeListOneUserController,
     makeUpdateUserController
-} from '../../generator'
+} from '../../generator';
 
 export const usersRoute = express.Router();
 

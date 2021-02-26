@@ -2,10 +2,10 @@ import { ListOneUser } from '../../controllers/users/list-one-user';
 
 import { Controller } from "../../protocols";
 
-import { listOneUser } from '../../services/list-one-user-db';
+import { listUsersDB } from '../../services/list-users-db';
 
 export const makeListOneUserController = (): Controller => {
-    const controller = new ListOneUser(listOneUser);
+    const controller = new ListOneUser(listUsersDB);
 
     return controller;
 }

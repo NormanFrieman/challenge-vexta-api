@@ -3,7 +3,7 @@ import { User } from '../../models';
 import { ServiceStatus, PropsUser } from "../protocols";
 
 export const listUsersDB = async (properties?: PropsUser): Promise<ServiceStatus> => {
-    const users = await User.findAll({ attributes: ['id', 'login', 'nome', 'admin'], where: properties });
+    const users = await User.findAll({ attributes: ['id', 'login', 'nome', 'admin', 'createdAt'], where: properties });
     
     if(!users)
         return { status: false, body: 'error checking the database' };
