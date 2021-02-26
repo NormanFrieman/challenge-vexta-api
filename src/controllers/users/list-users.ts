@@ -13,7 +13,7 @@ export class ListUsers implements Controller{
             properties.login = req.query.login;
         if(typeof req.query.nome === 'string')
             properties.nome = req.query.nome;
-        console.log(properties);
+        
         const users: ServiceStatus = await this.listUsers(properties);
         
         if(!users.status)
