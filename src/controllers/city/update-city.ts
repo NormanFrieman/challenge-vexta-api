@@ -1,0 +1,32 @@
+import { Request, Response } from "express";
+
+import { Controller, PropsCity, ServiceStatus } from '../../protocols';
+
+export class UpdateCity implements Controller{
+    constructor(
+        private updateCity: Function
+    ){}
+
+    async handle(req: Request, res: Response){
+        if(!req.params.id)
+            return res.status(400).json({ msg: 'missing id param' });
+        
+        if(!req.body)
+            return res.status(400).json({ msg: 'missing body json' });
+
+        if(!req.body.nome && !req.body.uf)
+            return res.status(400).json({ msg: 'missing nome or uf param' });
+
+        const properties: PropsCity = {};
+        if(req.body.nome)
+            properties.nome = req.body.nome;
+        if(req.body.uf)
+            properties.uf = req.body.uf;
+        
+        const city: ServiceStatus = await this.updateCity(req.params.id, properties);
+        if(!city.status)
+            return res.status(404).json({ msg: city.body });
+        
+        return res.status(200).json({ msg: city.body });
+    }
+}

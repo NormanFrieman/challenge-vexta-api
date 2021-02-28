@@ -23,7 +23,7 @@ export class UpdateUser implements Controller{
         if(req.body.nome)
             properties.nome = req.body.nome;
 
-        const user:ServiceStatus = await this.updateUser(req.params.id, properties);
+        const user: ServiceStatus = await this.updateUser(req.params.id, properties);
         if(!user.status)
             return res.status(404).json({ msg: user.body });
 

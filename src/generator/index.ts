@@ -12,5 +12,7 @@ export * from './users/makeUpdateUserController';
 export * from './cities/makeCreateCityController';
 export * from './cities/makeListCitiesController';
 export * from './cities/makeListOneCityController';
+export * from './cities/makeUpdateCityController';
+export * from './cities/makeDeleteCityController';
 
 export * from './auth/makeAuthController';
