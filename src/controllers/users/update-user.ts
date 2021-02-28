@@ -4,12 +4,20 @@ import { Controller, PropsUser, ServiceStatus } from "../../protocols";
 
 export class UpdateUser implements Controller{
     constructor(
-        private updateUser: Function
+        private updateUser: Function,
+        private validateUUID: Function
     ){}
 
     async handle(req: Request, res: Response){
         if(!req.params.id)
             return res.status(400).json({ msg: 'missing id param' });
+        
+        const validate = this.validateUUID(`${req.params.id}`);
+        if(!validate.status)
+            return res.status(400).json({ msg: 'id is not UUID format' });
+        
+        if(typeof req.params.id === 'number')
+            return res.status(400).json({ msg: 'wrong id format' });
         
         if(!req.body)
             return res.status(400).json({ msg: 'missing body json' });

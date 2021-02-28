@@ -2,8 +2,9 @@ import { City } from '../../models';
 
 import { ServiceStatus } from "../protocols";
 
-export const addCityDB = async (nome: string, uf: string): Promise<ServiceStatus> => {
+export const addCityDB = async (uuid: string, nome: string, uf: string): Promise<ServiceStatus> => {
     const city = await City.create({
+        id: uuid,
         nome: nome,
         uf: uf
     });

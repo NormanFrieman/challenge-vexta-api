@@ -6,7 +6,8 @@ export class CreateUser implements Controller{
 
     constructor(
         private encrypt: Function,
-        private addUserDB: Function
+        private addUserDB: Function,
+        private generateUUID: Function,
     ){};
 
     async handle(req: Request, res: Response){
@@ -22,11 +23,12 @@ export class CreateUser implements Controller{
 
         const { login, nome, senha, admin } = req.body;
 
+        const uuid: ServiceStatus = this.generateUUID();
         const hash: ServiceStatus = await this.encrypt(senha);
         if(!hash.status)
             return res.status(500).json({ msg: hash.body });
 
-        const response: ServiceStatus = await this.addUserDB(login, nome, hash.body, admin);
+        const response: ServiceStatus = await this.addUserDB(uuid.body, login, nome, hash.body, admin);
 
         if(!response.status)
             return res.status(500).json();

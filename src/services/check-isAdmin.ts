@@ -2,7 +2,7 @@ import { User } from '../../models';
 
 import { ServiceStatus } from "../protocols";
 
-export const checkIsAdmin = async (id: number): Promise<ServiceStatus> => {
+export const checkIsAdmin = async (id: string): Promise<ServiceStatus> => {
     const isAdmin = await User.findOne({ where: { id: id } });
     
     if(!isAdmin)

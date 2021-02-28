@@ -3,7 +3,8 @@ import { Controller, ServiceStatus } from "../../protocols";
 
 export class CreateCity implements Controller{
     constructor(
-        private addCityDB: Function
+        private addCityDB: Function,
+        private generateUUID: Function
     ){}
 
     async handle(req: Request, res: Response){
@@ -13,7 +14,8 @@ export class CreateCity implements Controller{
         if(!req.body.uf)
             return res.status(400).json({ msg: 'missing uf param' });
         
-        const city: ServiceStatus = await this.addCityDB(req.body.nome, req.body.uf.toUpperCase());
+        const uuid: ServiceStatus = this.generateUUID();
+        const city: ServiceStatus = await this.addCityDB(uuid.body, req.body.nome, req.body.uf.toUpperCase());
         if(!city.status)
             return res.status(401).json({ msg: city.body });
         
