@@ -17,47 +17,41 @@ module.exports = {
         type: Sequelize.CHAR      // MANDATORY
       },
       nome: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.STRING
       },
       username: {
-        allowNull: true,
         type: Sequelize.STRING
       },
       address: {
-        allowNull: true,
         type: Sequelize.STRING
       },
       numAddress: {
-        allowNull: true,
         type: Sequelize.INTEGER
       },
       district: {
-        allowNull: true,
+        type: Sequelize.STRING
+      },
+      uf: {
         type: Sequelize.STRING
       },
       complement: {
-        allowNull: true,
         type: Sequelize.STRING
       },
       idDistrict: {
-        allowNull: true,
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.UUID
       },
       tel: {
-        allowNull: true,
         type: Sequelize.INTEGER
       },
       email: {
-        allowNull: true,
         type: Sequelize.STRING
       },
       site: {
-        allowNull: true,
         type: Sequelize.STRING
       },
       phone: {
-        allowNull: true,
         type: Sequelize.INTEGER
       },
       idUser: {

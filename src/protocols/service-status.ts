@@ -5,11 +5,21 @@ export interface ServiceStatus{
 
 export interface PropsUser{
     login?: string,
-    nome?: string
+    nome?: string,
+    id?: string,
+    idUser?: string,
 }
 
 export interface PropsCity{
     nome?: string,
     uf?: string,
     idUser?: string
+}
+
+export interface PropsClient{
+    cpfOrCnpj?: string,
+    nome?: string,
+    tel?: string,
+    district?: string,
+    uf?: string
 }
