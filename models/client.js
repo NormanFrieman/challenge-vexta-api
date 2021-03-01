@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Client.init({
     cpfOrCnpj: DataTypes.STRING,
-    typePerson: DataTypes.CHAR,
+    typePerson: DataTypes.STRING,
     nome: DataTypes.STRING,
     username: DataTypes.STRING,
     address: DataTypes.STRING,

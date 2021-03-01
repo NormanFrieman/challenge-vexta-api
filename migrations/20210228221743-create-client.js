@@ -14,7 +14,7 @@ module.exports = {
       },
       typePerson: {
         allowNull: false,
-        type: Sequelize.CHAR      // MANDATORY
+        type: Sequelize.STRING      // MANDATORY
       },
       nome: {
         allowNull: false,

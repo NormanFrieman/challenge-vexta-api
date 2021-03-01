@@ -16,5 +16,6 @@ export * from './cities/makeUpdateCityController';
 export * from './cities/makeDeleteCityController';
 
 export * from './clients/makeCreateClientController';
+export * from './clients/makeListClientsController';
 
 export * from './auth/makeAuthController';

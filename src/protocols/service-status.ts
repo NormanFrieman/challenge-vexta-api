@@ -21,5 +21,6 @@ export interface PropsClient{
     nome?: string,
     tel?: string,
     district?: string,
-    uf?: string
+    uf?: string,
+    idUser: string
 }
