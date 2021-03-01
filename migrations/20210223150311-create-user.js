@@ -6,7 +6,7 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
-        defaultVallue: Sequelize.UUIDV4
+        defaultValue: Sequelize.UUID
       },
       login: {
         type: Sequelize.STRING
