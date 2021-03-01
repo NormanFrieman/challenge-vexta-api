@@ -4,8 +4,12 @@ import { Controller } from '../../protocols';
 
 import { deleteCityDB } from '../../services/delete-city-db';
 
+import { validateUUID } from '../../services/validate-uuid';
+
+import { checkPermissionCity } from '../../services/check-permission-city';
+
 export const makeDeleteCityController = (): Controller => {
-    const controller = new DeleteCity(deleteCityDB);
+    const controller = new DeleteCity(deleteCityDB, validateUUID, checkPermissionCity);
 
     return controller;
 }

@@ -3,7 +3,6 @@ import { User } from '../../models';
 import { ServiceStatus } from "../protocols";
 
 export const addUserDB = async (uuid: string, login: string, nome: string, senha: string, admin: string): Promise<ServiceStatus> => {
-    console.log(uuid);
     const user = await User.create({
         id: uuid,
         login: login,

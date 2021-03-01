@@ -10,5 +10,6 @@ export interface PropsUser{
 
 export interface PropsCity{
     nome?: string,
-    uf?: string
+    uf?: string,
+    idUser?: string
 }

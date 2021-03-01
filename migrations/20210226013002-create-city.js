@@ -16,7 +16,8 @@ module.exports = {
       },
       idUser: {
         allowNull: false,
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUID
       },
       createdAt: {
         allowNull: false,

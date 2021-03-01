@@ -4,12 +4,22 @@ import { Controller, ServiceStatus } from "../../protocols";
 
 export class DeleteCity implements Controller{
     constructor(
-        private deleteCityDB
+        private deleteCityDB: Function,
+        private validateUUID: Function,
+        private checkPermissionCity: Function
     ){}
 
     async handle(req: Request, res: Response){
         if(!req.params.id)
             return res.status(400).json({ msg: 'missing id param' });
+
+        const validate = this.validateUUID(`${req.params.id}`);
+        if(!validate.status)
+            return res.status(400).json({ msg: 'id is not UUID format' });
+
+        const permission: ServiceStatus = await this.checkPermissionCity(req.params.id, req.headers.id);
+        if(!permission.status)
+            return res.status(400).json({ msg: permission.body });
         
         const result: ServiceStatus = await this.deleteCityDB(req.params.id);
         if(!result.status)

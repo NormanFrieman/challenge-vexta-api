@@ -8,7 +8,9 @@ export class ListCities implements Controller{
     ){}
 
     async handle(req: Request, res: Response){
-        const properties: PropsCity = {};
+        const properties: PropsCity = {
+            idUser: `${req.headers.id}`
+        };
         if(typeof req.query.nome === 'string')
             properties.nome = req.query.nome;
         if(typeof req.query.uf === 'string')

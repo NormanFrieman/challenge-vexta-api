@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     tel: DataTypes.NUMBER,
     email: DataTypes.STRING,
     site: DataTypes.STRING,
-    phone: DataTypes.NUMBER
+    phone: DataTypes.NUMBER,
+    idUser: DataTypes.UUID
   }, {
     sequelize,
     modelName: 'Client',
