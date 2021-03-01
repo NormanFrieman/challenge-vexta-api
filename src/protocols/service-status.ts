@@ -3,12 +3,12 @@ export interface ServiceStatus{
     body?: any
 }
 
-export interface PropsUser extends Object{
+export interface PropsUser{
     login?: string,
     nome?: string
 }
 
-export interface PropsCity extends Object{
+export interface PropsCity{
     nome?: string,
     uf?: string
 }

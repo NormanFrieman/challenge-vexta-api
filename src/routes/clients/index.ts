@@ -1,7 +1,10 @@
 import express from 'express';
 
+import {
+    adaptRoute,
+    makeCreateClientController
+} from '../../generator';
+
 export const clientsRoute = express.Router();
 
-clientsRoute.get('/clientes', (req, res) => {
-    res.send('clientes');
-});
+clientsRoute.post('/clientes', adaptRoute(makeCreateClientController()));
