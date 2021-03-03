@@ -11,8 +11,10 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
+  console.log('first');
   sequelize = new Sequelize(process.env.DATABASE_URL) || new Sequelize(process.env[config.use_env_variable], config);
 } else {
+  console.log('second');
   sequelize = new Sequelize(process.env.DATABASE_URL) || new Sequelize(config.database, config.username, config.password, config);
 }
 
