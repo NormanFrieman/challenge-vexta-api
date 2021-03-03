@@ -1,1 +1,1 @@
-web: node build/server.js
+web: sequelize-cli db:migrate && sequelize-cli db:seed:all && node build/server.js
